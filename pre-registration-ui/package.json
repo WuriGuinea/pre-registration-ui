@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "stats": "webpack-bundle-analyzer dist/pre-registration/stats.json",
-    "sonar": "sonar-scanner"
+    "sonar": "sonar-scanner",
+    "other": "ng serve -o --proxy-config proxy.conf.json --ssl true "
   },
   "private": true,
   "dependencies": {

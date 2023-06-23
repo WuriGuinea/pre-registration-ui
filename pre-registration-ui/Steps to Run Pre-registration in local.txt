@@ -1,0 +1,44 @@
+Steps to Run pre-registration UI locally:
+
+Intial steps:
+1. Install node js
+   node-v14.17.4-x64
+
+2. Install all dependencies with below command.
+   npm install
+
+3. Install Angular with below command.
+   npm install -g @angular/cli@^7.2.0
+
+4. Start the Angular JS server with below command.
+   ng serve 
+
+5. Update the API services BASE_URL in src/assets/config.json as below
+      - config.json is found inside assets directory
+
+{
+"BASE_URL": "https://localhost:4200/proxyapi/",
+"PRE_REG_URL": "preregistration/v1/"
+}
+
+6. Create a new file named proxy.conf.json
+     - Path in C:\MOSIP\pre-registration-ui\pre-registration-ui\proxy.conf.json
+
+
+{
+    "/proxyapi": {
+      "target": "https://api-internal.gin-pilot.mosip.net/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/proxyapi": ""
+      }
+    }
+  }
+
+7. Open the package.json file and add in "scripts" tab new line "other": "ng serve --proxy-config proxy.conf.json --ssl true",
+Save the file
+8. Start the server by executing
+   npm run other
+   
+9. Open the browser, load the app with https://localhost:4200
