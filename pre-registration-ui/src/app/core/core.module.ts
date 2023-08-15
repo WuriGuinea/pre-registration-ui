@@ -10,10 +10,11 @@ import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AuthInterceptorService } from '../shared/auth-interceptor.service';
+import {ConfirmationDialogComponent} from "./contact/confirmation-dialog/confirmation-dialog.component";
 
 @NgModule({
   imports: [CommonModule, AppRoutingModule, SharedModule],
-  declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent],
+  declarations: [HeaderComponent, FooterComponent, AboutUsComponent, FaqComponent, ContactComponent, ConfirmationDialogComponent],
   exports: [HeaderComponent, FooterComponent, SharedModule],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }]
 })
